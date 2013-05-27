@@ -70,5 +70,30 @@ namespace dff.ExtensionsTests
             var x = (new string('X', 100) + ",, ").RemoveLastSeperator();
             Assert.AreEqual(new string('X', 100), x);
         }
+
+        [Test]
+        [TestCase("122.333", true)]
+        [TestCase("1", true)]
+        [TestCase("-122.333", true)]
+        [TestCase("-1", true)]
+        [TestCase("A", false)]
+        [TestCase("-1A", false)]
+        [TestCase("1.234A", false)]
+        public void IsNumeric_Test(string text, bool result)
+        {
+            Assert.AreEqual(text.IsNumeric(), result);
+        }
+
+        [Test]
+        [TestCase("1", 1)]
+        [TestCase("-1", -1)]
+        [TestCase("122.333", 0)]
+        [TestCase("A", 0)]
+        [TestCase("-1A", 0)]
+        [TestCase("1.234A", 0)]
+        public void TryToInt_Test(string text, int result)
+        {
+            Assert.AreEqual(text.TryToInt(), result);
+        }
     }
 }
