@@ -48,5 +48,40 @@ namespace dff.Extensions
             }
             return text;
         }
+
+        /// <summary>
+        /// Im CF gibt es kein tyrParse. Also hier eine eigene Variante.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static bool IsNumeric(this string value)
+        {
+            try
+            {
+                float.Parse(value);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Im CF gibt es kein tryParse. Macht ein Integer aus einem Sring, wenn möglich.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static int TryToInt(this string value)
+        {
+            try
+            {
+                return int.Parse(value);
+            }
+            catch
+            {
+                return 0;
+            }
+        }
     }
 }
