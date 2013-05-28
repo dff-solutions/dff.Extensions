@@ -3,7 +3,7 @@ dff.Extensions
 Nützliche Snippets für das täglich Programmierer-Brot
 -----------------------------------------------------
 
-Kein Bock mehr auf sowas hier?:
+Keinen Bock mehr auf sowas hier?:
 
 ```c#
 if (lieferauftraege.EndsWith(", "))
