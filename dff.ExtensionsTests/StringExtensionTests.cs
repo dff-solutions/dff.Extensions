@@ -72,7 +72,7 @@ namespace dff.ExtensionsTests
         }
 
         [Test]
-        [TestCase("122.333", true)]
+        [TestCase("122.333", false)]
         [TestCase("1", true)]
         [TestCase("-122.333", true)]
         [TestCase("-1", true)]

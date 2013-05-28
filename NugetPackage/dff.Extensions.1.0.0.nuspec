@@ -16,6 +16,6 @@
         <tags>C# Extensions</tags>
     </metadata>
     <files>
-        <file src="lib\dff.Extensions.dll" target="lib\dff.Extensions.dll" />
+        <file src="..\dff.Extensions\bin\debug\dff.Extensions.dll" target="lib\dff.Extensions.dll" />
     </files>
 </package>
