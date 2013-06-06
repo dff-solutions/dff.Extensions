@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 
 namespace dff.Extensions
 {
@@ -81,6 +82,24 @@ namespace dff.Extensions
             catch
             {
                 return 0;
+            }
+        }
+
+        /// <summary>
+        /// Gibt nach Übergabe eines Strings im Format "31.01.2004 12:00:00" das passende Date-Time Objekt zurück.
+        /// </summary>
+        /// <param name="date">String im Format 31.01.2004 12:00:00</param>
+        /// <returns>DateTime Objekt</returns>
+        public static DateTime GetDateTime(this string date)
+        {
+            try
+            {
+                IFormatProvider format = new CultureInfo("de-DE", true);
+                return DateTime.Parse(date, format, DateTimeStyles.NoCurrentDateDefault);
+            }
+            catch
+            {
+                return DateTime.MinValue;
             }
         }
     }

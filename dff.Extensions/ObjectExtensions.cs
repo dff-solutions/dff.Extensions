@@ -12,7 +12,14 @@ namespace dff.Extensions
         /// <returns></returns>
         public static string Dump(this Object obj)
         {
-            return ObjectDumper.Dump(obj);
+            try
+            {
+                return ObjectDumper.Dump(obj);
+            }
+            catch (Exception e)
+            {
+                return "Error while dumping: "+e.Message;
+            }
         }
     }
 }
