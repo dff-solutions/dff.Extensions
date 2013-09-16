@@ -12,12 +12,12 @@ namespace dff.Extensions
 
             try
             {
-                var mitte = Math.Floor((text.Length) * 0.75);
+                var mitte = Math.Floor((text.Length)*0.75);
 
                 var ueberfluessig = text.Length - maxLength + 3;
 
-                var vorn = text.Substring(0, (int)(mitte - (ueberfluessig * 0.75)));
-                var hinten = text.Substring((int)(mitte + (ueberfluessig * 0.25)));
+                var vorn = text.Substring(0, (int) (mitte - (ueberfluessig*0.75)));
+                var hinten = text.Substring((int) (mitte + (ueberfluessig*0.25)));
 
                 text = vorn + "..." + hinten;
             }
@@ -36,14 +36,14 @@ namespace dff.Extensions
             text = text.TrimEnd(' ');
 
             while (text.EndsWith(",") |
-                text.EndsWith(";") |
-                text.EndsWith("|") |
-                text.EndsWith("@") |
-                text.EndsWith("#") |
-                text.EndsWith("+") |
-                text.EndsWith("*") |
-                text.EndsWith("-") |
-                text.EndsWith("_"))
+                   text.EndsWith(";") |
+                   text.EndsWith("|") |
+                   text.EndsWith("@") |
+                   text.EndsWith("#") |
+                   text.EndsWith("+") |
+                   text.EndsWith("*") |
+                   text.EndsWith("-") |
+                   text.EndsWith("_"))
             {
                 text = text.Substring(0, text.Length - 1);
             }
@@ -102,5 +102,13 @@ namespace dff.Extensions
                 return DateTime.MinValue;
             }
         }
+
+        public static string GetLast(this string source, int tailLength)
+        {
+            if (tailLength >= source.Length)
+                return source;
+            return source.Substring(source.Length - tailLength);
+        }
+
     }
 }
