@@ -110,5 +110,19 @@ namespace dff.Extensions
             return source.Substring(source.Length - tailLength);
         }
 
+        public static string FillUpFirstCharacters(this string source, int totalLength, char fillUpWith)
+        {
+            if (source == null) source = string.Empty;
+            while (source.Length < totalLength) source = fillUpWith + source;
+            return source;
+        }
+
+        public static string FillUpLastCharacters(this string source, int totalLength, char fillUpWith)
+        {
+            if (source == null) source = string.Empty;
+            while (source.Length < totalLength) source = source + fillUpWith;
+            return source;
+        }
+
     }
 }
