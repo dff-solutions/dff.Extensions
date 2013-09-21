@@ -24,5 +24,10 @@ namespace dff.Extensions
             }
             return diff;
         }
+
+        public static DateTime Ago (this TimeSpan timeSpan)
+        {
+            return (DateTime.Now.Subtract(timeSpan));
+        }
     }
 }

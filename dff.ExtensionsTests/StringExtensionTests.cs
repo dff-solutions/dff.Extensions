@@ -72,6 +72,34 @@ namespace dff.ExtensionsTests
         }
 
         [Test]
+        public void RemoveFirst()
+        {
+            var x = "Hallo Welt!".RemoveFirst(6);
+            Assert.AreEqual("Welt!", x);
+        }
+
+        [Test]
+        public void FillUp()
+        {
+            var x = "1".FillUpFirstCharacters(3, '0');
+            Assert.AreEqual("001", x);
+        }
+
+        [Test]
+        public void FillUpTail()
+        {
+            var x = "1".FillUpLastCharacters(3, '0');
+            Assert.AreEqual("100", x);
+        }
+
+        [Test]
+        public void RemoveLast()
+        {
+            var x = "Hallo Welt!".RemoveLast(6);
+            Assert.AreEqual("Hallo", x);
+        }
+
+        [Test]
         [TestCase("122.333", true)]
         [TestCase("1", true)]
         [TestCase("-122.333", true)]

@@ -110,6 +110,20 @@ namespace dff.Extensions
             return source.Substring(source.Length - tailLength);
         }
 
+        public static string RemoveLast(this string source, int removeCharacters)
+        {
+            if (source.Length >= removeCharacters)
+                return source.Substring(0, source.Length - removeCharacters);
+            return source;
+        }
+
+        public static string RemoveFirst(this string source, int removeCharacters)
+        {
+            if (source.Length >= removeCharacters)
+                return source.Substring(removeCharacters);
+            return source;
+        }
+
         public static string FillUpFirstCharacters(this string source, int totalLength, char fillUpWith)
         {
             if (source == null) source = string.Empty;
