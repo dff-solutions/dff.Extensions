@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Drawing;
 using System.Globalization;
+using System.IO;
 
 namespace dff.Extensions
 {
@@ -47,6 +49,10 @@ namespace dff.Extensions
             {
                 text = text.Substring(0, text.Length - 1);
             }
+
+            if (text.EndsWith(Environment.NewLine))
+                text = text.Substring(0, text.LastIndexOf(Environment.NewLine, StringComparison.Ordinal));
+
             return text;
         }
 
@@ -136,6 +142,24 @@ namespace dff.Extensions
             if (source == null) source = string.Empty;
             while (source.Length < totalLength) source = source + fillUpWith;
             return source;
+        }
+
+        public static Bitmap BitmapFromBase64(string base64)
+        {
+            try
+            {
+                Bitmap bitmap;
+                using (var memory = new MemoryStream(Convert.FromBase64String(base64)))
+                {
+                    bitmap = new Bitmap(memory);
+                }
+                return bitmap;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+                return null;
+            }
         }
 
     }
