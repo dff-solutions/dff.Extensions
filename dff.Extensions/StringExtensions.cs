@@ -2,6 +2,8 @@
 using System.Drawing;
 using System.Globalization;
 using System.IO;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace dff.Extensions
 {
@@ -162,5 +164,26 @@ namespace dff.Extensions
             }
         }
 
+        public static string GetMd5Hash(this string source)
+        {
+            try
+            {
+                if (source == null) return string.Empty;
+                var md5 = MD5.Create();
+                var inputBytes = Encoding.ASCII.GetBytes(source);
+                var hash = md5.ComputeHash(inputBytes);
+                var sb = new StringBuilder();
+                for (var i = 0; i < hash.Length; i++)
+                {
+                    sb.Append(hash[i].ToString("X2"));
+                }
+                return sb.ToString();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return string.Empty;
+            }
+        }
     }
 }
