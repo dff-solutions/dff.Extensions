@@ -185,5 +185,22 @@ namespace dff.Extensions
                 return string.Empty;
             }
         }
+
+        public static string RemoveTextBetween(this string source, string startDelimiter, string endDelimiter)
+        {
+            try
+            {
+                var startIndex = source.IndexOf(startDelimiter, StringComparison.CurrentCulture);
+                var text = source.Substring(0,startIndex);
+
+                var endIndex = source.IndexOf(endDelimiter, startIndex, StringComparison.CurrentCulture);
+                return text+source.Substring(endIndex + endDelimiter.Length);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return string.Empty;
+            }
+        }
     }
 }
