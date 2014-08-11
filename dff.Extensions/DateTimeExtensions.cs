@@ -48,7 +48,20 @@ namespace dff.Extensions
         /// <returns>TimeSpan seit dem DateTime</returns>
         public static TimeSpan GetTimeSpanTillNow(this DateTime date)
         {
-            return new TimeSpan(DateTime.Now.Ticks-date.Ticks);
+            return new TimeSpan(DateTime.Now.Ticks - date.Ticks);
+        }
+
+        /// <summary>
+        /// Gibt die Zeitspanne die seit dem DateTime vergangen ist zurück (Basis ist DateTime.Now).
+        /// Ist negativ, wenn das DateTime in der Zukunft liegt.
+        /// </summary>
+        /// <param name="date"></param>
+        /// <returns>TimeSpan seit dem DateTime</returns>
+        public static TimeSpan GetTimeSpanTillNow(this DateTime? date)
+        {
+            return new TimeSpan(DateTime.Now.Ticks - Convert.ToDateTime(date).Ticks);
         }
     }
+
+    
 }
