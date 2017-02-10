@@ -4,6 +4,7 @@ using System.Globalization;
 using System.IO;
 using System.Security.Cryptography;
 using System.Text;
+using dff.Extensions.Gps;
 
 namespace dff.Extensions
 {
@@ -200,6 +201,19 @@ namespace dff.Extensions
             {
                 Console.WriteLine(e);
                 return string.Empty;
+            }
+        }
+
+        public static DffGpsPosition GetDffGpsPosition(this string position)
+        {
+            try
+            {
+                return new DffGpsPosition(position);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+                return null;
             }
         }
     }

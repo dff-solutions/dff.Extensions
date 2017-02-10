@@ -58,6 +58,8 @@
     <Compile Include="Base64Extensions.cs" />
     <Compile Include="DateTimeExtensions.cs" />
     <Compile Include="FileInfoExtensions.cs" />
+    <Compile Include="Gps\DffGPSTools.cs" />
+    <Compile Include="Gps\DffGPSPosition.cs" />
     <Compile Include="HelperClasses\ObjectDumper.cs" />
     <Compile Include="ObjectExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
