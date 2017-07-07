@@ -139,7 +139,7 @@ namespace dff.Extensions.HelperClasses
                 return ("null");
 
             if (o is DateTime)
-                return (((DateTime)o).ToShortDateString());
+                return (((DateTime)o).ToString("yyyy-MM-dd HH:mm:ss"));
 
             if (o is string)
                 return string.Format("\"{0}\"", o);
