@@ -114,6 +114,8 @@ namespace dff.Extensions.HelperClasses
 
         private bool AlreadyTouched(object value)
         {
+            if (value == null) return false;
+            
             var hash = value.GetHashCode();
             for (var i = 0; i < _hashListOfFoundElements.Count; i++)
             {
